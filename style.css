@@ -1,4 +1,4 @@
-/* Återställer standardmarginaler/padding och använder border-box för att inkludera padding i elementets storlek */
+
 * {
   margin: 0;
   padding: 0;
@@ -94,13 +94,11 @@ a {
 }
 
 
-
 h2 {
   color: black;
   margin-bottom: 20px;
   margin-top: 100px;
 }
-
 
 .hero {
   padding: 2rem 1rem;
@@ -152,24 +150,18 @@ h2 {
 .featured-section {
   width: 100%;
   background-color: #ffffff;
-  /* Den vita rutan */
   padding: 3rem 0;
-  /* Luft ovanför och under */
 }
 
 
 .featured-article {
   margin: 0 auto;
-  /* Centrerar elementet horisontellt */
   padding: 2rem;
-  /* Lite mer rimlig padding */
-
   background-color: #ffffff;
   border-radius: 12px;
   max-width: 900px;
-  /* Bestämmer hur bred artikeln får vara */
-}
 
+}
 
 .article-title {
   font-size: 1.6rem;
@@ -188,24 +180,6 @@ h2 {
   object-fit: cover;
 }
 
-
-.container {
-  width: 100%;
-  margin: auto;
-  text-align: center;
-}
-
-/* Rubrik med stor text och mörkröd färg, justerad till höger */
-.headline {
-  font-size: 80px;
-  font-weight: lighter;
-  color: #8d0801;
-  text-align: right;
-  margin: 50px;
-  padding: 20px;
-}
-
-/* Artikel med prickad orange linje och en radial gradient som bakgrund */
 .article {
   margin-bottom: 100px;
   padding-bottom: 50px;
@@ -215,19 +189,6 @@ h2 {
   font-size: 30px;
 }
 
-/* Rubrik med stor text och mörkröd färg, justerad till höger */
-.headline {
-  font-size: 80px;
-  font-weight: lighter;
-  color: #8d0801;
-  text-align: right;
-  margin: 50px;
-  padding: 20px;
-}
-
-
-
-/* Bilderna placeras i en rad, centrerar dem horisontellt och vertikalt och lägger till ett mellanrum mellan bilderna */
 .image-container {
   display: flex;
   justify-content: center;
@@ -236,18 +197,17 @@ h2 {
   cursor: pointer;
 }
 
-/* Definierar storleken på bilderna och gör att de täcker det angivna utrymmet utan att bli förvrängda  */
 .image-container img {
   width: 400px;
   height: 400px;
   object-fit: cover;
-
   padding: 20px;
 }
 
 /* Input-fält i en container med kolumnlayout och flytande positionering */
 .input-container {
   float: right;
+  margin-top:1rem;
 }
 
 .button {
