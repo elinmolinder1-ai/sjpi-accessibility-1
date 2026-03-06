@@ -28,94 +28,81 @@ Det finns många sätt att göra en webbplats mer tillgänglig, till exempel att
 
 <!DOCTYPE html>
 <!-- Vad händer när man kommenterar bort språket? -->
-<!-- <html lang="en"> -->
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <!-- Endast en `<title>` används; flera kan orsaka oväntat beteende och påverka SEO samt tillgänglighet negativt. -->
+
     <title>A11y News</title>
-    <title>A11y News dupe</title>
 </head>
 
 <body>
-    <!-- Navigeringsmeny med dubblett-ID:n, inkonsekvent tabindex, och brutna länkar till en 404-sida. -->
-    <nav class="navigation">
-        <span class="nav-item" id="1" tabindex="-1"><a href="404.html" target="_blank">Home</a></span>
-        <span class="nav-item" id="1" tabindex="-1"><a href="404.html">World</a></span>
-        <span class="nav-item" id="1"><a href="404.html">Sports</a></span>
-        <span class="nav-item" id="1"><a href="404.html" target="_blank">Entertainment</a></span>
-    </nav>
 
-    <!-- Svåråtkomligt inputfällt -->
-    <div class="input-container">
-        <input type="text" placeholder="Enter text">
-        <button><a href="#">Search</a></button>
-    </div>
+    <!-- Korrekt navigation la till en klickbar "logga" som navigerar tillbaka till home samt en tagline för att tydligare visa vilken typ av webbsida användaren kommit till-->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#home" class="logo">
+                    <h1>A11y News</h1>
+                    <p class="logo-text">Get all the latest news</p>
+                </a>
 
-    <!-- Dold text och klickbar div. 
-     .hidden-text är nästan osynlig p.g.a. låg opacity och roterad tex -->
-    <p class="hidden-text">This text is invisible.</p>
-    <div class="button">Click here!</div>
-    <div class="container">
-
-        <!-- Två <h1>-taggar i .container kan påverka tillgänglighet och SEO. -->
-        <h1>A11y News</h1>
-        <h1></h1>
-
-        <div class="article">
-            <!-- <marquee>(rullande text) kan vara en intressant effekt på en hemsida, men det kan också vara distraherande för besökarna. -->
-            <marquee class="headline">Breaking News: ...!</marquee>
-            <p>Scientists have discovered a new deep-sea fish with bioluminescent fins off the coast of Australia. The
-                unnamed species is believed to have unique traits that could contribute to future medical research and
-                biotechnology.</p>
-            <a href="404.html">Click here!</a>
+                <ul class="nav-links">
+                    <li><a href="#home" class="active" aria-current="page">Home</a></li>
+                    <li><a href="#World">World</a></li>
+                    <li><a href="#Sports">Sports</a></li>
+                    <li><a href="#Entertainment">Entertainment</a></li>
+                </ul>
+            </nav>
         </div>
 
-        <!-- Klicka på artikeln för att visa ett meddelande, men den utför egentligen inget. -->
-        <div class="article" onclick="alert('This does nothing!')">
-            <div>Lunar New Year: Celebrate with us!</div>
-
-            <!-- Bilder visas inte, varför? -->
-            <div class="image-container">
-                <img src="/images/ocean.jpg">
-                <img src="/images/city.jpg">
-                <img src="/images/family.jpg">
-            </div>
-
-            <p>Access the news by pressing the images</p>
+        <!-- Tydligare sökfunktion -->
+        <div class="input-container">
+            <label for="search">Search</label>
+            <input id="search" type="text" placeholder="Search articles"> <button type="submit">Search</button>
         </div>
+    </header>
 
-        <!-- Allt för stor bild. För att motverka prestanda problem, ha koll på storleken på bilden -->
-        <div class="article" style="display: none;">
-            <p class="headline">Se en 50MB bild ladda långsamt!</p>
-            <img src="http://upload.wikimedia.org/wikipedia/commons/3/3f/JPEG_example_flower.jpg" width="50000">
-        </div>
+    <main>
+        <section class="hero">
+            <article class="hero-article">
+                <div class="hero-text">
+                    <h2 class="hero-heading">Breaking News: ...!</h2>
+                    <h3 class="hero-title">Deepsea fish with glowing fins discovered</h3>
 
-        <!-- Videor kräver mycket prestanda, kan vi ändra eller ta bort för att åstakomma bättre resultat -->
-        <div class="article">
-            <video autoplay muted loop src="https://www.w3schools.com/html/mov_bbb.mp4"></video>
-            <img src="http://media.giphy.com/media/xT9IgG50Fb7Mi0prBC/giphy.gif">
-        </div>
-    </div>
+                    <p>Scientists have discovered a new deep-sea fish with bioluminescent fins off the</p>
+                    <p>coast of
+                        Australia.
+                        The
+                        unnamed species is believed to have unique traits </p>
+                    <p>that could contribute to future medical
+                        research and
+                        biotechnology.</p>
+                    <button class="button">Read more</button>
+                </div>
 
-    <!-- En irriterande annons som alltid syns och innehåller en snurrande bild samt en vilseledande text -->
-    <div id="fake-ad">
-        <div class="top-section">
-            <div class="image-container">
-                <img class="rotating-image" src="images/chest.png">
-            </div>
-            <p>🎉 You have won $10,000! 🎉</p>
-            <div class="image-container">
-                <img class="rotating-image" src="images/chest.png">
-            </div>
-        </div>
-        <p class="btext">Click here to collect your money!</p>
-    </div>
+                <div class="hero-image">
+                    <img src="/images/deepfish.jpg" alt="Bioluminescent deep-sea fish" width="500">
+                </div>
+            </article>
 
 
-    <script src="script.js" defer></script>
+            <section class="featured-section">
+                <article class="featured-article">
+                    <h2 class="article-title">Lunar New Year: Come and celebrate with us!</h2>
+
+                    <div class="article-images">
+                        <img src="/images/ocean.jpg" alt="Ocean view with waves">
+                        <img src="/images/city.jpg" alt="City skyline">
+                        <img src="/images/family.jpg" alt="Family celebrating together">
+                    </div>
+
+                    <button class="button">Read more about Lunar New Year</button>
+                </article>
+            </section>
+    </main>
 </body>
 
 </html>
